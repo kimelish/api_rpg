@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30104.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "api_rpg", "api_rpg\api_rpg.csproj", "{B131621E-D288-4A1E-83DE-B130E17AD559}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B131621E-D288-4A1E-83DE-B130E17AD559}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B131621E-D288-4A1E-83DE-B130E17AD559}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B131621E-D288-4A1E-83DE-B130E17AD559}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B131621E-D288-4A1E-83DE-B130E17AD559}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8077CEFA-1895-456A-A01E-1BBD615B924D}
+	EndGlobalSection
+EndGlobal
