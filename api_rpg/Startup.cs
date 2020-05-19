@@ -28,6 +28,7 @@ namespace api_rpg
             services.AddDbContext<DataContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddAutoMapper(typeof(Startup));
+            services.AddScoped<IAuthRepository, AuthRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -35,7 +36,7 @@ namespace api_rpg
         {
             if (env.IsDevelopment()) app.UseDeveloperExceptionPage();
             app.UseSwagger();
-            app.UseSwaggerUI(options => options.SwaggerEndpoint("swagger/v1/swagger.json", "api-rpg v1"));
+            app.UseSwaggerUI(options => options.SwaggerEndpoint("/swagger/v1/swagger.json", "api-rpg v1"));
             app.UseRouting();
 
             app.UseAuthorization();
