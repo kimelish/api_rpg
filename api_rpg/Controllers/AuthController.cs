@@ -21,8 +21,17 @@ namespace api_rpg.Controllers
         public async Task<IActionResult> Register(UserRegisterDto request)
         {
             var response = await _authRepo.Register(
-                new User {UserName = request.Username}, request.Password
+                new User { UserName = request.Username }, request.Password
             );
+            if (!response.Success) return BadRequest(response);
+
+            return Ok(response);
+        }
+
+        [HttpPost("Login")]
+        public async Task<IActionResult> Login(UserLoginDto request)
+        {
+            var response = await _authRepo.Login(request.Username, request.Password);
             if (!response.Success) return BadRequest(response);
 
             return Ok(response);
