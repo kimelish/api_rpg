@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using api_rpg.Data;
@@ -7,6 +8,7 @@ using api_rpg.Dtos.Character;
 using api_rpg.Models;
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 
 namespace api_rpg.Services.CharacterService
 {
@@ -28,6 +30,11 @@ namespace api_rpg.Services.CharacterService
         {
             var serviceResponse = new ServiceResponse<List<GetCharacterDto>>();
             var character = _mapper.Map<Character>(newCharacter);
+            character.User = await _context.Users.FirstOrDefaultAsync(u => u.Id == GetUserId());
+            await _context.Characters.AddAsync(character);
+            await _context.SaveChangesAsync();
+            serviceResponse.Data = _context.Characters.Where(c => c.User.Id == GetUserId())
+                .Select(c => _mapper.Map<GetCharacterDto>(c)).ToList();
             return serviceResponse;
         }
 

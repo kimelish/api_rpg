@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using api_rpg.Dtos.Skill;
 using api_rpg.Models;
 
 namespace api_rpg.Dtos.Character
@@ -14,7 +15,7 @@ namespace api_rpg.Dtos.Character
         public RpgClass Class { get; set; } = RpgClass.Knight;
 
         public Models.Weapon Weapon { get; set; }
-        public List<Models.CharacterSkill> CharacterSkills { get; set; }
+        public List<GetSkillDto> Skills { get; set; }
 
         public int Fights { get; set; }
         public int Victories { get; set; }
